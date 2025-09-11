@@ -62,9 +62,9 @@ xor_shift_reg rngB(
 );
 always @(rd_slct_a, rd_slct_b) begin
     if (rd_slct_a == 3'b001)
-        rng_update_a = clk;
+        rng_update_a = ~rng_update_a;
     if (rd_slct_b == 3'b001)
-        rng_update_b = clk;    
+        rng_update_b = ~rng_update_b;    
 end
 always_ff @(posedge clk) begin
     if (wrtnbl)//writing stuff
