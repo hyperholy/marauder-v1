@@ -68,9 +68,9 @@ always @(rd_slct_a, rd_slct_b) begin
 end
 always_ff @(posedge clk) begin
     if (wrtnbl)//writing stuff
-        if(wrt_slct[7:3] == 4'b0000)//a
+        if(wrt_slct[6:3] == 4'b0000)//a
             regs_a[wrt_slct[2:0]] <= data_in;
-        else if(wrt_slct[7:3] == 4'b0001)//b
+        else if(wrt_slct[6:3] == 4'b0001)//b
             regs_b[wrt_slct[2:0]] <= data_in;
     case (rd_slct_a)//reading stuff
         3'b000:  regs_a[0] <= '0;

@@ -32,7 +32,7 @@ module regstb;
         wrt_slct = 7'b0000110;
         wrtnbl = '1;
         @(posedge clk);
-        wrtnbl = '0;
+        
         #10
         rd_slct_a = 3'b110;
         rd_slct_b = 3'b110;
@@ -40,5 +40,6 @@ module regstb;
 
         $display("REG A%b = %b", rd_slct_a, data_out_a);
         $display("REG B%b = %b", rd_slct_b, data_out_b);
+        $finish;
     end
 endmodule
